@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
 const msgs = new Storage("messages");
 
 io.on("connection", (socket) => {
-    console.log("connection", socket);
     socket.emit("chat message", msgs.getAll());
     socket.broadcast.emit("user connected", "New User Connected");
 
